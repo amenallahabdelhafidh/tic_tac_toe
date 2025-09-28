@@ -2,11 +2,11 @@ import numpy as np
 import random
 
 class QLearningAgent:
-    def __init__(self, alpha=0.1, gamma=0.9, epsilon=0.2):
-        self.q_table = {}  # dictionary: state -> action values
-        self.alpha = alpha  # learning rate
-        self.gamma = gamma  # discount factor
-        self.epsilon = epsilon  # exploration probability
+    def __init__(self, alpha=0.5, gamma=0.9, epsilon=0.2):
+        self.q_table = {} 
+        self.alpha = alpha  
+        self.gamma = gamma  
+        self.epsilon = epsilon  
 
     def get_state_key(self, state):
         """Convert board numpy array into a string to use as dict key"""
@@ -16,11 +16,9 @@ class QLearningAgent:
         """Epsilon-greedy strategy to pick an action"""
         state_key = self.get_state_key(state)
 
-        # Initialize if unseen
         if state_key not in self.q_table:
             self.q_table[state_key] = np.zeros(9)
 
-        # Exploration vs Exploitation
         if random.random() < self.epsilon:
             return random.choice(available_actions)  # explore
         else:
