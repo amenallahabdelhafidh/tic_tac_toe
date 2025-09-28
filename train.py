@@ -59,4 +59,4 @@ def train(agent, episodes=5000):
 
 if __name__ == "__main__":
     agent = QLearningAgent(alpha=0.1, gamma=0.9, epsilon=0.2)
-    train(agent, episodes=5000)
+    train(agent, episodes=500000)

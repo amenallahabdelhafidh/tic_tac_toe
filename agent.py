@@ -2,7 +2,7 @@ import numpy as np
 import random
 
 class QLearningAgent:
-    def __init__(self, alpha=0.5, gamma=0.9, epsilon=0.2):
+    def __init__(self, alpha=0.9, gamma=0.9, epsilon=0.2):
         self.q_table = {} 
         self.alpha = alpha  
         self.gamma = gamma  
